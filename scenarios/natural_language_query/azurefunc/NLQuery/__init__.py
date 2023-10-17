@@ -18,13 +18,13 @@ openai.api_version = "2023-09-15-preview"
 
 def run_openai(prompt, engine=GPT_ENGINE):
     """Recognize entities in text using OpenAI's text classification API."""
-    response = openai.Completion.create(
+    response = openai.ChatCompletion.create(
         engine=engine,
-        prompt=prompt,
+        messages = [{"role":"system","content":prompt}],
         temperature=0,
         max_tokens=2048,
     )
-    return response.choices[0].text
+    return response.choices[0].message.content
 
 
 def execute_sql_query(query):
