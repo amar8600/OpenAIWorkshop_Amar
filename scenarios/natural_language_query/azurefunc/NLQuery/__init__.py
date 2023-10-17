@@ -31,11 +31,13 @@ def execute_sql_query(query):
     #logging.info('Python HTTP trigger function processed a request.')
     server=os.getenv("SQL_SERVER_NAME")
     database=os.getenv("SQL_DB_NAME")
+    user=os.getenv("SQL_USER_NAME")
+    password=os.getenv("SQL_PASSWORD")
     
    
     driver="{ODBC Driver 17 for SQL Server}"
     db_token = ''
-    connection_string = 'DRIVER='+driver+';SERVER='+server+';DATABASE='+database
+    connection_string = 'DRIVER='+driver+';SERVER='+server+';DATABASE='+database+';UID='+user+';PWD='+password
     
     #When MSI is enabled
     if os.getenv("MSI_SECRET"):
