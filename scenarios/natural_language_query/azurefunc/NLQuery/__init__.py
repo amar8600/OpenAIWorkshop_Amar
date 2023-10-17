@@ -46,7 +46,7 @@ def execute_sql_query(query):
     
     #Used when run from local
     else:
-        SQL_COPT_SS_ACCESS_TOKEN = 1256
+        SQL_COPT_SS_ACCESS_TOKEN = 2000
 
         exptoken = b''
         for i in bytes(db_token, "UTF-8"):
